@@ -18,14 +18,14 @@ function App() {
         gun.get('text').put({text: "Write the text here"})
       } else {
         console.log("Found Node")
-        setTxt(node.text)
+        setTxt(node.text.replaceAll(/\\n/gm, "\n"))
       }
     })
 
     gun.get('text').on((node) => {
       console.log("Receiving Update")
       console.log(node)
-      setTxt(node.text)
+      setTxt(node.text.replaceAll(/\\n/gm, "\n"))
     })
   }, [])
 
